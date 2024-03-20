@@ -83,10 +83,7 @@ if choice=="SignUp":
 if choice=="Login":
     Email = st.sidebar.text_input("Email")
     Password = st.sidebar.text_input("Password",type="password")
-    b1=st.sidebar.checkbox("Login")
-    Email1=st.text_input("DeleteEmail")
-    if st.button('Delete'):
-         delete_user(Email1)     
+    b1=st.sidebar.checkbox("Login")    
     if b1:
         regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
         if re.fullmatch(regex, Email):
@@ -94,6 +91,10 @@ if choice=="Login":
             if result:
                 if Email=="a@a.com" and Password=="123":
                     st.success("Logged In as {}".format(Email))
+                    st.success("Logged In as {}".format(Email))
+                    Email1=st.text_input("DeleteEmail")
+                    if st.button('Delete'):
+                         delete_user(Email1)
                     user_result = view_all_users()
                     clean_db = pd.DataFrame(user_result,columns=["FirstName","LastName","Mobile","City","Email","password","Cpassword"])
                     st.dataframe(clean_db)
