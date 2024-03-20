@@ -54,7 +54,7 @@ menu = ["Home","Login","SignUp"]
 choice = st.sidebar.selectbox("Menu",menu)
 
 if choice=="Home":
-    st.subheader("Home Page")
+    st.subheader("Welcome to Diabetes Prediction System")
 if choice=="SignUp":
         Fname = st.text_input("First Name")
         Lname = st.text_input("Last Name")
@@ -102,7 +102,7 @@ if choice=="Login":
                     st.success("Logged In as {}".format(Email))
                     menu2 = ["K-Nearest Neighbors", "SVM",
                              "Decision Tree", "Random Forest",
-                             "Naive Bayes","ExtraTreesClassifier","VotingClassifier"]
+                             "Naive Bayes","ExtraTreesClassifier"]
                     choice2 = st.selectbox("Select ML",menu2)
                     Pregnancies=float(st.slider('Pregnancies Value', 0, 17))
                     Glucose=float(st.slider('Glucose Value', 0, 199))
@@ -143,10 +143,7 @@ if choice=="Login":
                                 test_prediction = model[5].predict(tdata)
                                 query=test_prediction[0]
                                 #st.success(query)
-                        if choice2=="VotingClassifier":
-                                test_prediction = model[6].predict(tdata)
-                                query=test_prediction[0]
-                                #st.success(query)
+                       
                         if query==0:
                             st.success("Not Diabetic")
                         else:
