@@ -20,7 +20,7 @@ def set_bg_hack_url():
         f"""
         <style>
         .stApp {{
-            background:url("https://images.pexels.com/photos/2847648/pexels-photo-2847648.jpeg?auto=compress&cs=tinysrgb&w=600");
+            background:url("https://www.shutterstock.com/image-vector/cute-cartoon-red-droplet-checks-260nw-2280322507.jpg");
             
             background-size: cover
             }}
@@ -50,11 +50,24 @@ def delete_user(Email):
     c.execute("DELETE FROM userstable WHERE Email="+"'"+Email+"'")
     conn.commit()
     
-menu = ["Home","Login","SignUp"]
+menu = ["Home","SignUp","Login"]
 choice = st.sidebar.selectbox("Menu",menu)
 
 if choice=="Home":
-    st.subheader("Welcome to Diabetes Prediction System")
+    st.markdown(
+        """
+        <h2 style="color:black">Welcome to Diabetes Prediction System</h2>
+        <h1>   </h1>
+        <p align="justify">
+        <b style="color:black">The Diabetes Condition Prediction System with Python Webapp is a cutting-edge solution aimed at early detection and management of
+        diabetes using predictive analytics and a user-friendly webinterface. Utilizing machine learning algorithms implemented in Python, the system analyzes
+        diverse health parameters,such as blood glucose levels,body mass index and medical history, to predict the likelihood of diabetes onset. The accompanying 
+        web application provides an accessible platform for user to input relevant health data and in return it delivers real time prediction and personalized 
+        recommendations for lifestyle modifications. By leveraging technology to forecast diabetes risk and offering actionable insight, this system contributes 
+        to proactive healthcare, faciliating early intervention and improved quality of life for individuals at risk of or alredy living with diabetes.</b>
+        </p>
+        """
+        ,unsafe_allow_html=True)
 if choice=="SignUp":
         Fname = st.text_input("First Name")
         Lname = st.text_input("Last Name")
